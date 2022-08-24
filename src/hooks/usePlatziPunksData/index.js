@@ -49,7 +49,7 @@ const usePlatziPunksData = () => {
             setLoading(true);
 
             const totalSupply = await platziPunks.methods.totalSupply().call();
-            let tokenIds = new Array(totalSupply).fill().map((_, index) => index);
+            let tokenIds = new Array(Number(totalSupply)).fill().map((_, index) => index);
 
             const punksPromise = tokenIds.map((tokenId) => getPunksData({ platziPunks, tokenId }));
 
